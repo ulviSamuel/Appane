@@ -30,11 +30,13 @@
                     echo "<p class='descrizione_prodotto'>".$row['descrizione']."</p>";
                     echo "<span class='categoria_prodotto'>Categoria: ".$row['categoria']."</span>";
                     echo "<span class='prezzo_prodotto'>Prezzo: ".$row['prezzo']."€</span>";
+                    echo "<span class='testo_quantità'>Quantità:</span>";
+                    echo "<input class='selettore_quantità' type='number' value='1' min='1' max='99' step='1'/>";
+                    echo "<button class='btn_aggiungi_carrello'>Aggiungi al carrello</button>";
                     echo "</div>";
                 }
                 echo "</div>";
             ?>
         </div>
     </body>
-
 </html>
