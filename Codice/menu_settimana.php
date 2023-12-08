@@ -21,22 +21,25 @@
                 require_once("variabili_connessione.php");
                 $sql = "SELECT tp.id, foto, nome, descrizione, prezzo, categoria FROM tprodotti tp JOIN tcategorie tc ON tp.idCategoria = tc.id ORDER BY tc.categoria, tp.nome";
                 $res = mysqli_query($con, $sql);
-                echo "<div id='prodotti'>";
-                while($row = mysqli_fetch_assoc($res))
+                if(mysqli_num_rows($res) != 0)
                 {
-                    echo "<div class='prodotto'>";
-                    echo "<img class='foto_prodotto' src='".$row['foto']."' alt='".$row['nome']."'>";
-                    echo "<h3 class='nome_prodotto'>".$row['nome']."</h3>";
-                    echo "<p class='descrizione_prodotto'>".$row['descrizione']."</p>";
-                    echo "<span class='categoria_prodotto'>Categoria: ".$row['categoria']."</span>";
-                    echo "<span class='prezzo_prodotto'>Prezzo: ".$row['prezzo']."€</span>";
-                    echo "<button class='btn_dettagli_prodotto' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['id']."'\">Prodotto in Dettaglio</button>";
-                    echo "<span class='testo_quantità'>Quantità:</span>";
-                    echo "<input class='selettore_quantità' type='number' value='1' min='1' max='99' step='1'/>";
-                    echo "<button class='btn_aggiungi_carrello'>Aggiungi al carrello</button>";
+                    echo "<div id='prodotti'>";
+                    while($row = mysqli_fetch_assoc($res))
+                    {
+                        echo "<div class='prodotto'>";
+                        echo "<img class='foto_prodotto' src='".$row['foto']."' alt='".$row['nome']."'>";
+                        echo "<h3 class='nome_prodotto'>".$row['nome']."</h3>";
+                        echo "<p class='descrizione_prodotto'>".$row['descrizione']."</p>";
+                        echo "<span class='categoria_prodotto'>Categoria: ".$row['categoria']."</span>";
+                        echo "<span class='prezzo_prodotto'>Prezzo: ".$row['prezzo']."€</span>";
+                        echo "<button class='btn_dettagli_prodotto' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['id']."'\">Prodotto in dettaglio</button>";
+                        echo "<span class='testo_quantità'>Quantità:</span>";
+                        echo "<input class='selettore_quantità' type='number' value='1' min='1' max='99' step='1'/>";
+                        echo "<button class='btn_aggiungi_carrello'>Aggiungi al carrello</button>";
+                        echo "</div>";
+                    }
                     echo "</div>";
                 }
-                echo "</div>";
             ?>
         </div>
     </body>
