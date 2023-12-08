@@ -40,6 +40,8 @@
                     }
                     echo "</div>";
                 }
+                else
+                    echo "<h2 id='menu_vuoto'>Non è presente ancora nessun prodotto nel menù di questa settimana</h2>"
             ?>
         </div>
     </body>

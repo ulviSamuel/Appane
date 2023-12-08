@@ -22,14 +22,19 @@
                 $idProdotto = $_GET['idProdotto'];
                 $sql        = "SELECT foto, nome, descrizione, prezzo, categoria FROM tprodotti tp JOIN tcategorie tc ON tp.idCategoria = tc.id WHERE tp.id = $idProdotto";
                 $res = mysqli_query($con, $sql);
-                echo "<div id='prodotto'>";
-                $row = mysqli_fetch_assoc($res);
-                echo "<img class='foto_prodotto' src='".$row['foto']."' alt='".$row['nome']."'>";
-                echo "<h3 class='nome_prodotto'>".$row['nome']."</h3>";
-                echo "<p class='descrizione_prodotto'>".$row['descrizione']."</p>";
-                echo "<span class='categoria_prodotto'>Categoria: ".$row['categoria']."</span>";
-                echo "<span class='prezzo_prodotto'>Prezzo: ".$row['prezzo']."€</span>";
-                echo "</div>";
+                if(mysqli_num_rows($res) != 0)
+                {
+                    echo "<div id='prodotto'>";
+                    $row = mysqli_fetch_assoc($res);
+                    echo "<img class='foto_prodotto' src='".$row['foto']."' alt='".$row['nome']."'>";
+                    echo "<h3 class='nome_prodotto'>".$row['nome']."</h3>";
+                    echo "<p class='descrizione_prodotto'>".$row['descrizione']."</p>";
+                    echo "<span class='categoria_prodotto'>Categoria: ".$row['categoria']."</span>";
+                    echo "<span class='prezzo_prodotto'>Prezzo: ".$row['prezzo']."€</span>";
+                    echo "</div>";
+                }
+                else
+                    echo "<h2 id='prodotto_inesistente'>Prodotto non trovato</h2>"
             ?>
         </div>
     </body>
