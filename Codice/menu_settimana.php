@@ -34,8 +34,8 @@
                         echo "<span class='prezzo_prodotto'>Prezzo: ".$row['prezzo']."€</span>";
                         echo "<button class='btn_dettagli_prodotto' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['id']."'\">Prodotto in dettaglio</button>";
                         echo "<span class='testo_quantità'>Quantità:</span>";
-                        echo "<input class='selettore_quantità' type='number' value='1' min='1' max='99' step='1'/>";
-                        echo "<button class='btn_aggiungi_carrello'>Aggiungi al carrello</button>";
+                        echo "<input id='selettore_quantità_".$row['id']."' class='selettore_quantità' type='number' value='1' min='1' max='99' step='1'/>";
+                        echo "<button class='btn_aggiungi_carrello' onclick='aggiungiAlCarrello(".$row['id'].")'>Aggiungi al carrello</button>";
                         echo "</div>";
                     }
                     echo "</div>";
@@ -44,5 +44,20 @@
                     echo "<h2 id='menu_vuoto'>Non è presente ancora nessun prodotto nel menù di questa settimana</h2>"
             ?>
         </div>
+
+        <script>
+            function aggiungiAlCarrello(idProdotto)
+            {
+                var xhttp = new XMLHttpRequest();
+                var quantità = document.getElementById('selettore_quantità_'+idProdotto).value;
+                xhttp.onreadystatechange = function ()
+                {
+                    if(xhttp.readyState == 4 && xhttp.status == 200)
+                        alert("Prodotto aggiunto al carrello");
+                }
+                xhttp.open("POST", "aggiungi_al_carrello.php?idProdotto="+idProdotto+"&quantità="+quantità);
+                xhttp.send();
+            }
+        </script>
     </body>
 </html>
