@@ -15,7 +15,18 @@
 
         <div id="corpo">
 
-            <button onclick="window.location.href = 'menu_settimana.php'">Indietro</button>
+            <button id='btn_indietro'>Indietro</button>
+
+            <script>
+                 var btnIndietro      = document.getElementById('btn_indietro');
+                 btnIndietro.addEventListener('click', btnCliccato);
+
+                 function btnCliccato()
+                 {
+                    var paginaPrecedente = document.referrer;
+                    window.location.href = paginaPrecedente;
+                 }
+            </script>
         
             <?php
                 require_once("variabili_connessione.php");
