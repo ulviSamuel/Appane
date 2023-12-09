@@ -46,6 +46,7 @@
                     }
                     echo "</div>";
                     echo "<h2 id='prezzo_totale'>Totale: ".$prezzoTotale."€</h2>";
+                    echo "<button>Conferma Ordine</button>";
                 }
                 else
                     echo "<h2 id='carrello_vuoto'>Non ci sono prodotti nel carrello</h2>";
