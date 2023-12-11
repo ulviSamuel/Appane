@@ -50,13 +50,18 @@
             {
                 var xhttp = new XMLHttpRequest();
                 var quantità = document.getElementById('selettore_quantità_'+idProdotto).value;
-                xhttp.onreadystatechange = function ()
+                if(quantità >= 1 && quantità <= 99)
                 {
-                    if(xhttp.readyState == 4 && xhttp.status == 200)
-                        alert("Prodotto aggiunto al carrello");
+                    xhttp.onreadystatechange = function ()
+                    {
+                        if(xhttp.readyState == 4 && xhttp.status == 200)
+                            alert("Prodotto aggiunto al carrello");
+                    }
+                    xhttp.open("POST", "aggiungi_al_carrello.php?idProdotto="+idProdotto+"&quantità="+quantità);
+                    xhttp.send();
                 }
-                xhttp.open("POST", "aggiungi_al_carrello.php?idProdotto="+idProdotto+"&quantità="+quantità);
-                xhttp.send();
+                else
+                    alert("Quantità non accettata, inserire un numero compreso tra 1 e 99");
             }
         </script>
     </body>

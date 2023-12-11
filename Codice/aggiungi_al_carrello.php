@@ -24,5 +24,5 @@
         $dataIns = DATE("Y:m:d H:i:s");
         $sql = "INSERT INTO tcarrello (idprodotto, quantita, sessione, idutente, evaso, datains) VALUES ('$idProdotto', '$quantità', '$idSessione', '$idUtente', '$evaso', '$dataIns')";
         mysqli_query($con, $sql);
-    }
+    } 
 ?>
