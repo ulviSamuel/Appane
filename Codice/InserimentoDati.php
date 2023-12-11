@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -17,13 +18,21 @@
         $nome      = $_POST['nome'];
         $cognome   = $_POST['cognome'];
         $indirizzo = $_POST['indirizzo'];
-        $citta     = $_POST['citta'];
-        $provincia = $_POST['provincia'];
         $telefono  = $_POST['telefono'];
         $email     = $_POST['email'];
-        $username  = $_POST['username'];
 
-        $sql = "";
+        if(isset($_POST['notifica'])){
+            $notifica = $_POST['notifica'];
+        }else{
+            $notifica = "s";
+        }
+
+        $username  = $_POST['username'];
+        $password  = $_POST['password'];
+        
+
+        $sql = "INSERT INTO tutenti ( 'username', 'password', 'telefono', 'email', 'indirizzo', 'notifiche', 'cognome', 'nome')	
+        VALUES ($username, $password,$telefono, $email, $indirizzo,$notifica, $cognome, $nome);";
         $rec = mysqli_query($con, $sql);
 
 

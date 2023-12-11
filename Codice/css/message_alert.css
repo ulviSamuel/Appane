@@ -1,0 +1,19 @@
+#alert {
+	display:none;
+	background-color: #00000055;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+.messaggio {
+    border: 5px solid #699553;
+    padding: 37px;
+	width: fit-content;
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
