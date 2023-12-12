@@ -34,36 +34,68 @@
                     echo "<div id='prodotti'>";
                     while($row = mysqli_fetch_assoc($res))
                     {
-                        $prezzoTotale = $prezzoTotale + ($row['prezzo']*$row['quantita']);
+                        $prezzoProdotto = number_format(($row['prezzo']*$row['quantita']), 2, '.', '');
+                        $prezzoTotale   = $prezzoTotale + $prezzoProdotto;
+                        $prezzoTotale   = number_format($prezzoTotale, 2, '.', '');
                         echo "<div id='prodotto_".$row['idProdCarrello']."' class='prodotto'>";
                         echo "<img class='foto_prodotto' src='".$row['foto']."' alt='".$row['nome']."'>";
                         echo "<h3 class='nome_prodotto'>".$row['nome']."</h3>";
                         echo "<span class='testo_quantità'>Quantità:".$row['quantita']."</span>";
-                        echo "<span class='prezzo_totale_prodotto'>Prezzo totale: ".($row['prezzo']*$row['quantita'])."€</span>";
+                        echo "<span id='prezzo_totale_prodotto_".$row['idProdCarrello']."' class='prezzo_totale_prodotto'>Prezzo totale: ".$prezzoProdotto."€</span>";
                         echo "<button class='btn_dettagli_prodotto' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['idProdotto']."'\">Prodotto in dettaglio</button>";
                         echo "<button class='btn_rimuovi_carrello' onclick='rimuoviDalCarrello(".$row['idProdCarrello'].")'>Rimuovi dal carrello</button>";
                         echo "</div>";
                     }
                     echo "</div>";
                     echo "<h2 id='prezzo_totale'>Totale: ".$prezzoTotale."€</h2>";
-                    echo "<button>Conferma Ordine</button>";
+                    echo "<button id='btn_conferma_ordine'>Conferma Ordine</button>";
                 }
                 else
                     echo "<h2 id='carrello_vuoto'>Non ci sono prodotti nel carrello</h2>";
             ?>
 
             <script>
-                function rimuoviDalCarrello(idProdCarrello)
+                function rimuoviDalCarrello(idProdCarrello, numProdotti)
                 {
                     var conferma = confirm("Attenzione: questa operazione comporterà la rimozione irreversibile del prodotto selezionato dal carrello.");
                     if(conferma)
                     {
                         var xhttp = new XMLHttpRequest();
-                        xhttp.open("POST", "rimuovi_prodotto_carrello.php?idProdotto="+idProdCarrello);
+                        xhttp.open("POST", "rimuovi_prodotto_carrello.php?idProdotto=" + idProdCarrello);
                         xhttp.send();
-                        var prodotto = document.getElementById("prodotto_"+idProdCarrello);
-                        prodotto.style.display = "none";
+                        var prodotto                  = document.getElementById("prodotto_" + idProdCarrello);
+                        prodotto.style.display        = "none";
+                        if(verificaPresenzaElementi() == false)
+                        {
+                            var btnConfermaOrdine           = document.getElementById("btn_conferma_ordine");
+                            btnConfermaOrdine.style.display = "none";
+                            var prezzoTotale                = document.getElementById("prezzo_totale");
+                            prezzoTotale.style.display      = "none";
+                            document.getElementById("prodotti").innerHTML = "<h2 id='carrello_vuoto'>Non ci sono prodotti nel carrello</h2>";
+                        }
+                        else
+                        {
+                            var prezzoProdottoElement     = document.getElementById("prezzo_totale_prodotto_" + idProdCarrello);
+                            var prezzoProdotto            = prezzoProdottoElement.innerText.replace(/[^0-9.]/g, '');
+                            var prezzoTotaleElement       = document.getElementById('prezzo_totale');
+                            var prezzoTotale              = prezzoTotaleElement.innerText.replace(/[^0-9.]/g, '');
+                            var prezzoAggiornato          = prezzoTotale - prezzoProdotto;
+                            prezzoAggiornato              = prezzoAggiornato.toFixed(2);
+                            prezzoTotaleElement.innerText = "Nuovo totale: " + prezzoAggiornato + "€";
+                        }
+                        
                     }
+                }
+
+                function verificaPresenzaElementi()
+                {
+                    var listaProdotti = document.getElementById("prodotti");
+                    for(var idx = 0; idx < listaProdotti.children.length; ++idx)
+                    {
+                        if(listaProdotti.children[idx].style.display != "none")
+                            return true;
+                    }
+                    return false;
                 }
             </script>
 
