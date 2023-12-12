@@ -35,6 +35,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <!-- Nome   Cognome   indirizzo di consegna  Citta   provincia   numero di telefono   email   username  -->
     <form action="" method="POST" onSubmit="return controllo()">
         <input type="text"     name="nome" placeholder="Name">

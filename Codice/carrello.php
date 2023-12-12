@@ -8,15 +8,23 @@
         <header>
             <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
             <h2 id="nome_software">Appane</h2>
-            <a id="link_home" href="index.html">Home</a>
+            <a id="link_home" href="index.php">Home</a>
             <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
+            <?php
+                session_start();
+                if(!isset($_SESSION['idUtente']))
+                {
+                    echo "<a id='link_login' href='login.php'>";
+                    echo "<button id='btn_login'>Login</button>";
+                    echo "</a>";
+                }
+            ?>
         </header>
 
         <div id="corpo">
             <h1 id="titolo">Riepilogo Ordine</h1>  
 
             <?php
-                session_start();
                 $idSessione = session_id();
                 $idUtente   = null;
                 if(isset($_SESSION['idUtente']))

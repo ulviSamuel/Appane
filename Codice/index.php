@@ -19,11 +19,14 @@
                 <button id="btn_carrello">Carrello</button>
             </a>
         </div>
-        <div class = "elemento">
-            <a href="login.php">
-                <button >accedi</button>
-            </a>
-        </div>
+        <?php
+                if(!isset($_SESSION['idUtente']))
+                {
+                    echo "<a id='link_login' class='elemento' href='login.php'>";
+                    echo "<button id='btn_login'>Login</button>";
+                    echo "</a>";
+                }
+            ?>
     </div>
     
     <div id="contenuto">
