@@ -32,9 +32,9 @@
                 require_once("variabili_connessione.php");
                 $sql = "SELECT tc.id AS idProdCarrello, tp.id AS idProdotto, foto, nome, prezzo, quantita FROM tcarrello tc JOIN tprodotti tp ON tc.idprodotto = tp.id WHERE ";
                 if(!is_null($idUtente))
-                    $sql = $sql."tc.idUtente = $idUtente ORDER BY tc.datains";
+                    $sql = $sql."tc.idUtente = $idUtente AND tc.evaso != 's' ORDER BY tc.datains";
                 else
-                    $sql = $sql."tc.sessione = '$idSessione' ORDER BY tc.datains";
+                    $sql = $sql."tc.sessione = '$idSessione' AND tc.evaso != 's' ORDER BY tc.datains";
                 $res = mysqli_query($con, $sql);
                 if(mysqli_num_rows($res) != 0)
                 {
@@ -56,7 +56,9 @@
                     }
                     echo "</div>";
                     echo "<h2 id='prezzo_totale'>Totale: ".$prezzoTotale."€</h2>";
+                    echo "<a id='link_conferma_ordine' href='conferma_ordine.php'>";
                     echo "<button id='btn_conferma_ordine'>Conferma Ordine</button>";
+                    echo "</a>";
                 }
                 else
                     echo "<h2 id='carrello_vuoto'>Non ci sono prodotti nel carrello</h2>";
@@ -91,7 +93,6 @@
                             prezzoAggiornato              = prezzoAggiornato.toFixed(2);
                             prezzoTotaleElement.innerText = "Nuovo totale: " + prezzoAggiornato + "€";
                         }
-                        
                     }
                 }
 
@@ -106,8 +107,6 @@
                     return false;
                 }
             </script>
-
         </div>
-
     </body>
 </html>

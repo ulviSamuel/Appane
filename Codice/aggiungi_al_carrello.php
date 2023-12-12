@@ -3,7 +3,7 @@
     require_once("variabili_connessione.php");
     $quantità   = $_REQUEST['quantità'];
     $idProdotto = $_REQUEST['idProdotto'];
-    $sql = "SELECT id, quantita FROM tcarrello WHERE idProdotto = $idProdotto";
+    $sql = "SELECT id, quantita FROM tcarrello WHERE idProdotto = $idProdotto AND evaso != 's'";
     $res = mysqli_query($con, $sql);
     if(mysqli_num_rows($res) == 1)
     {
