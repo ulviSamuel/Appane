@@ -9,7 +9,11 @@
             {
                 require_once("variabili_connessione.php");
                 $idUtente = $_SESSION['idUtente'];
-                $sql      = "UPDATE tcarrello SET evaso = 's' WHERE idutente = $idUtente AND evaso = 'n'";
+                $dataOraAttuale    = new DateTime();
+                $dataOraUnGiornoFa = clone $dataOraAttuale;
+                $dataOraUnGiornoFa->modify("-1 day");
+                $dataOraUnGiornoFaSQL = $dataOraUnGiornoFa->format('Y-m-d H:i:s');
+                $sql      = "UPDATE tcarrello SET evaso = 's' WHERE idutente = $idUtente AND evaso = 'n' AND datains > '$dataOraUnGiornoFaSQL'";
                 mysqli_query($con, $sql);
             }
         ?>

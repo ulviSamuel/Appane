@@ -30,11 +30,15 @@
                 if(isset($_SESSION['idUtente']))
                     $idUtente = $_SESSION['idUtente'];
                 require_once("variabili_connessione.php");
+                $dataOraAttuale    = new DateTime();
+                $dataOraUnGiornoFa = clone $dataOraAttuale;
+                $dataOraUnGiornoFa->modify("-1 day");
+                $dataOraUnGiornoFaSQL = $dataOraUnGiornoFa->format('Y-m-d H:i:s');
                 $sql = "SELECT tc.id AS idProdCarrello, tp.id AS idProdotto, foto, nome, prezzo, quantita FROM tcarrello tc JOIN tprodotti tp ON tc.idprodotto = tp.id WHERE ";
                 if(!is_null($idUtente))
-                    $sql = $sql."tc.idUtente = $idUtente AND tc.evaso != 's' ORDER BY tc.datains";
+                    $sql = $sql."tc.idUtente = $idUtente AND tc.evaso != 's' AND datains > '$dataOraUnGiornoFaSQL' ORDER BY tc.datains";
                 else
-                    $sql = $sql."tc.sessione = '$idSessione' AND tc.evaso != 's' ORDER BY tc.datains";
+                    $sql = $sql."tc.sessione = '$idSessione' AND tc.evaso != 's' AND datains > '$dataOraUnGiornoFaSQL' ORDER BY tc.datains";
                 $res = mysqli_query($con, $sql);
                 if(mysqli_num_rows($res) != 0)
                 {
