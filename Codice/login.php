@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
 
+    <div class = "backgroundOpacity">
+
+    </div>
     <button id='btn_indietro'>Indietro</button>
 
     <script>
@@ -20,15 +24,26 @@
         }
     </script>
     
-    <form action="auth.php" method="post">
+    <div id = "input">
 
-        <input type="text"     name="username" placeholder="username">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit"   value="login">
-    </form>
+        <form action="auth.php" method="post" class = "loginForm">
 
-    <p>  Non hai un account? </p>
-    <a href="registrati.php"> Registrati </a>
+            <input type="text"     name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit"   value="login">
+        </form>
+
+        <div class = "nuovoAccountDiv">
+            <p id = "registrati">  Non hai un account? 
+            <a href="registrati.php"> Registrati </a>
+            </p>
+        </div>
+        
+
+        
+    </div>
+
+    
 
 </body>
 </html>

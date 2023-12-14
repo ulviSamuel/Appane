@@ -31,11 +31,11 @@
         $password  = $_POST['password'];
         
 
-        $sql = "INSERT INTO tutenti ( 'username', 'password', 'telefono', 'email', 'indirizzo', 'notifiche', 'cognome', 'nome')	
-        VALUES ($username, $password,$telefono, $email, $indirizzo,$notifica, $cognome, $nome);";
+        $sql = "INSERT INTO tutenti ( username, password, telefono, email, indirizzo, notifiche, cognome, nome)	
+        VALUES ('$username', '$password','$telefono', '$email', '$indirizzo','$notifica', '$cognome', '$nome');";
         $rec = mysqli_query($con, $sql);
 
-
+        header('location:index.php');
     ?>
 
 </body>
