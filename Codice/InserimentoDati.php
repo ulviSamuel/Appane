@@ -14,6 +14,7 @@
 
         require_once('variabili_connessione.php');
 
+        session_start();
 
         $nome      = $_POST['nome'];
         $cognome   = $_POST['cognome'];
@@ -30,11 +31,14 @@
         $username  = $_POST['username'];
         $password  = $_POST['password'];
         
+        
 
         $sql = "INSERT INTO tutenti ( username, password, telefono, email, indirizzo, notifiche, cognome, nome)	
         VALUES ('$username', '$password','$telefono', '$email', '$indirizzo','$notifica', '$cognome', '$nome');";
         $rec = mysqli_query($con, $sql);
 
+
+        $_SESSION['idUtente'] = $rec['id'];
         header('location:index.php');
     ?>
 

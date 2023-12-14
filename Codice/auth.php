@@ -18,8 +18,12 @@
         if(mysqli_num_rows($rec) == 1){
             session_start();
 
-            $_SESSION['$username'] = $username;
+            $array = mysqli_fetch_array($rec);
+
+            $_SESSION['username'] = $username;
             $_SESSION['connessione'] = $con;
+
+            $_SESSION['idUtente'] = $rec['id'];
 
             $redirectURL = "menu_settimana.php";
             $delay = 1;     //delay di 1 secondo
