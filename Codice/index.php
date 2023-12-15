@@ -2,33 +2,33 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="css/home.css">
-     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <?php session_start(); ?>
 </head>
 <body>
-    <div id="intestazione">
-
-        <div class="elemento"> <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane"> </div>
-        <div class="elemento" > <h2 id="nome_software">Appane</h2> </div>
-        <div class="elemento"> <a id="link_menu" href="menu_settimana.php">Menù della settimana</a> </div>
-        <div class="elemento"> <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a> </div>
-        <div class="elemento">
-            <a id="link_carrello" href="carrello.php">
-                <button id="btn_carrello">Carrello</button>
-            </a>
-        </div>
-        <?php
-                if(!isset($_SESSION['idUtente']))
-                {
-                    echo "<a id='link_login' class='elemento' href='login.php'>";
-                    echo "<button id='btn_login'>Login</button>";
-                    echo "</a>";
-                }
-        ?>
-    </div>
+        <header>
+            <div id="parte_sinistra_header">
+                <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
+                <h2 id="nome_software">Appane</h2>
+                <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
+                <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a>
+            </div>
+            <div id="parte_destra_header">
+                <a id="link_carrello" href="carrello.php">
+                    <img id="img_carrello" src="img/icona_carrello.png" alt="Carrello">
+                </a>
+                <?php
+                    if(!isset($_SESSION['idUtente']))
+                    {
+                        echo "<a id='link_login' href='login.php'>";
+                        echo "<img id='img_login' src='img/login_icon.png' alt='Login'>";
+                        echo "</a>";
+                    }
+                ?>
+            </div>
+        </header>
     
     <div id="contenuto">
 

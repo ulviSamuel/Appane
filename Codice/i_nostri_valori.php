@@ -2,26 +2,31 @@
 
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/nostri_valori_style.css">
     </head>
 
     <body>
         <header>
-            <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
-            <h2 id="nome_software">Appane</h2>
-            <a id="link_home" href="index.php">Home</a>
-            <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
-            <a id="link_carrello" href="carrello.php">
-                <button id="btn_carrello">Carrello</button>
-            </a>
-            <?php
-                session_start();
-                if(!isset($_SESSION['idUtente']))
-                {
-                    echo "<a id='link_login' href='login.php'>";
-                    echo "<button id='btn_login'>Login</button>";
-                    echo "</a>";
-                }
-            ?>
+            <div id="parte_sinistra_header">
+                <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
+                <h2 id="nome_software">Appane</h2>
+                <a id="link_home" href="index.php">Home</a>
+                <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
+            </div>
+            <div id="parte_destra_header">
+                <a id="link_carrello" href="carrello.php">
+                    <img id="img_carrello" src="img/icona_carrello.png" alt="Carrello">
+                </a>
+                <?php
+                    session_start();
+                    if(!isset($_SESSION['idUtente']))
+                    {
+                        echo "<a id='link_login' href='login.php'>";
+                        echo "<img id='img_login' src='img/login_icon.png' alt='Login'>";
+                        echo "</a>";
+                    }
+                ?>
+            </div>
         </header>
 
         <div id="corpo">
@@ -56,7 +61,7 @@
             <div class="valore_sx">
                 <h2 class="titolo_valore_sx">No conservanti e o additivi</h2>
                 <p id="paragrafo_valore_sx">
-                    Nella selezione degli ingredienti e nella produzione del prodotto, ci impegnamo a selezionare e a non aggiungere conservanti o additivi. Noi crediamo nel pane di antica tradizione, fresco e da consumare in giornata.
+                    Nella selezione degli ingredienti e nella produzione del prodotto, ci impegnamo a selezionare e a non aggiungere conservanti o additivi.<br>Noi crediamo nel pane di antica tradizione, fresco e da consumare in giornata.
                 </p>
             </div>
 

@@ -6,20 +6,24 @@
 
     <body>
         <header>
-            <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
-            <h2 id="nome_software">Appane</h2>
-            <a id="link_home" href="index.php">Home</a>
-            <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
-            <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a>
-            <?php
-                session_start();
-                if(!isset($_SESSION['idUtente']))
-                {
-                    echo "<a id='link_login' href='login.php'>";
-                    echo "<button id='btn_login'>Login</button>";
-                    echo "</a>";
-                }
-            ?>
+            <div id="parte_sinistra_header">
+                <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
+                <h2 id="nome_software">Appane</h2>
+                <a id="link_home" href="index.php">Home</a>
+                <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
+                <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a>
+            </div>
+            <div id="parte_destra_header">
+                <?php
+                    session_start();
+                    if(!isset($_SESSION['idUtente']))
+                    {
+                        echo "<a id='link_login' href='login.php'>";
+                        echo "<img id='img_login' src='img/login_icon.png' alt='Login'>";
+                        echo "</a>";
+                    }
+                ?>
+            </div>
         </header>
 
         <div id="corpo">
