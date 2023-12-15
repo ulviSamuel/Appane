@@ -14,6 +14,7 @@
         <div class="elemento"> <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane"> </div>
         <div class="elemento" > <h2 id="nome_software">Appane</h2> </div>
         <div class="elemento"> <a id="link_menu" href="menu_settimana.php">Menù della settimana</a> </div>
+        <div class="elemento"> <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a> </div>
         <div class="elemento">
             <a id="link_carrello" href="carrello.php">
                 <button id="btn_carrello">Carrello</button>
@@ -26,7 +27,7 @@
                     echo "<button id='btn_login'>Login</button>";
                     echo "</a>";
                 }
-            ?>
+        ?>
     </div>
     
     <div id="contenuto">

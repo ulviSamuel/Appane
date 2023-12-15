@@ -9,6 +9,7 @@
             <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
             <h2 id="nome_software">Appane</h2>
             <a id="link_home" href="index.php">Home</a>
+            <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a>
             <a id="link_carrello" href="carrello.php">
                 <button id="btn_carrello">Carrello</button>
             </a>

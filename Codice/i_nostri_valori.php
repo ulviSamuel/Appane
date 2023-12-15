@@ -1,0 +1,72 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <header>
+            <img id="logo" src="img/logo_provvisorio.png" alt="Logo Appane">
+            <h2 id="nome_software">Appane</h2>
+            <a id="link_home" href="index.php">Home</a>
+            <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
+            <a id="link_carrello" href="carrello.php">
+                <button id="btn_carrello">Carrello</button>
+            </a>
+            <?php
+                session_start();
+                if(!isset($_SESSION['idUtente']))
+                {
+                    echo "<a id='link_login' href='login.php'>";
+                    echo "<button id='btn_login'>Login</button>";
+                    echo "</a>";
+                }
+            ?>
+        </header>
+
+        <div id="corpo">
+            <div class="valore_sx">
+                <h2 class="titolo_valore_sx">Qualità</h2>
+                <p id="paragrafo_valore_sx">
+                    Il nostro obbiettivo è creare del pane di qualità di nicchia, non abbiamo intenzione di fare concorrenza ai supermercati.
+                </p>
+            </div>
+
+            <div class="valore_dx">
+                <h2 class="titolo_valore_dx">Selezione degli ingredienti</h2>
+                <p id="paragrafo_valore_dx">
+                    Che si tratti di olio, farine o acqua noi applichiamo una severa selezione di scelta sugli ingredienti.
+                </p>
+            </div>
+
+            <div class="valore_sx">
+                <h2 class="titolo_valore_sx">Solo ingredienti km0</h2>
+                <p id="paragrafo_valore_sx">
+                    Tutti gli ingredienti da noi selezionati per la creazione dei nostri prodotti vengono acquistati in territorio triestino e dintorni.
+                </p>
+            </div>
+
+            <div class="valore_dx">
+                <h2 class="titolo_valore_dx">Solo ingredienti 100% biologici</h2>
+                <p id="paragrafo_valore_dx">
+                    Gli ingredienti da noi scelti sono tutti severamente di origine biologica.
+                </p>
+            </div>
+
+            <div class="valore_sx">
+                <h2 class="titolo_valore_sx">No conservanti e o additivi</h2>
+                <p id="paragrafo_valore_sx">
+                    Nella selezione degli ingredienti e nella produzione del prodotto, ci impegnamo a selezionare e a non aggiungere conservanti o additivi. Noi crediamo nel pane di antica tradizione, fresco e da consumare in giornata.
+                </p>
+            </div>
+
+            <div class="valore_dx">
+                <h2 class="titolo_valore_dx">Tradizione</h2>
+                <p id="paragrafo_valore_dx">
+                    Ci impegnamo nel continuare a produrre i nostri prodotti tramite le tecniche di produzione pre-industriali.
+                </p>
+            </div>
+        </div>
+    </body>
+
+</html>

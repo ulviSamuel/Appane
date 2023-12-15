@@ -10,6 +10,7 @@
             <h2 id="nome_software">Appane</h2>
             <a id="link_home" href="index.php">Home</a>
             <a id="link_menu_settimana" href="menu_settimana.php">Menù della settimana</a>
+            <a id="link_valori" href="i_nostri_valori.php">I nostri valori</a>
             <?php
                 session_start();
                 if(!isset($_SESSION['idUtente']))
