@@ -2,6 +2,7 @@
 
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/carrello_style.css">
     </head>
 
     <body>

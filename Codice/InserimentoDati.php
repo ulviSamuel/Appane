@@ -35,11 +35,17 @@
 
         $sql = "INSERT INTO tutenti ( username, password, telefono, email, indirizzo, notifiche, cognome, nome)	
         VALUES ('$username', '$password','$telefono', '$email', '$indirizzo','$notifica', '$cognome', '$nome');";
+        mysqli_query($con, $sql);
+
+        $sql = "SELECT id FROM tutenti WHERE username = '$username' AND password = '$password'";
         $rec = mysqli_query($con, $sql);
 
-
-        $_SESSION['idUtente'] = $rec['id'];
-        header('location:index.php');
+        if(mysqli_num_rows($rec) == 1)
+        {
+            $row = mysqli_fetch_assoc($rec);
+            $_SESSION['idUtente'] = $row['id'];
+            header('location:index.php');
+        }
     ?>
 
 </body>

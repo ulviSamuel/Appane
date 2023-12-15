@@ -2,6 +2,7 @@
 
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="css/menu_settimana_style.css">
     </head>
 
     <body>

@@ -4,6 +4,10 @@
     $quantità   = $_REQUEST['quantità'];
     $idProdotto = $_REQUEST['idProdotto'];
     $sql = "SELECT id, quantita FROM tcarrello WHERE idProdotto = $idProdotto AND evaso != 's'";
+    if(isset($_SESSION['idUtente']))
+        $sql = $sql . " AND idUtente = " . $_SESSION['idUtente']; 
+    else
+        $sql = $sql . " AND sessione = '" . session_id() . "'";
     $res = mysqli_query($con, $sql);
     if(mysqli_num_rows($res) == 1)
     {
