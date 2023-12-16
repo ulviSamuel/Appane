@@ -25,16 +25,14 @@
             $_SESSION['idUtente'] = $row['id'];
 
             $redirectURL = "menu_settimana.php";
-            $delay = 1;     //delay di 1 secondo
 
-            header("Refresh:$delay;url=$redirectURL");
+            header("Location: $redirectURL");
             exit();
         }else{
 
             $redirectURL = "login.php";
-            $delay = 1;     //delay di 1 secondo
 
-            header("Refresh:$delay;url=$redirectURL");
+            header("Location: ".$redirectURL."?error=true");
             exit();
 
         }

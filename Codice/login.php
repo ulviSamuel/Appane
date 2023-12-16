@@ -33,6 +33,11 @@
             <input type="submit"   value="login">
         </form>
 
+        <?php
+            if(isset($_GET['error']))
+                echo "<span id='mess_errore'>Credenziali errate</span>";
+        ?>
+
         <div class = "nuovoAccountDiv">
             <p id = "registrati">  Non hai un account? 
             <a href="registrati.php"> Registrati </a>
