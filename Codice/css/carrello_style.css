@@ -98,3 +98,8 @@ header
 {
     transform: scale(0.9);
 }
+
+#benvenuto_utente
+{
+    font-size: 120%;
+}

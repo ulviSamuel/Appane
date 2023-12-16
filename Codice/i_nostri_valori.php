@@ -25,6 +25,8 @@
                         echo "<img id='img_login' src='img/login_icon.png' alt='Login'>";
                         echo "</a>";
                     }
+                    else
+                        echo "<span id='benvenuto_utente'>Benvenuto ".$_SESSION['username']."</span>";
                 ?>
             </div>
         </header>

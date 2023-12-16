@@ -9,21 +9,20 @@
     
     <?php
 
-        $username = $_POST['userame'];
+        $username = $_POST['username'];
         $password = $_POST['password'];
 
         require_once('variabili_connessione.php');
-        $sql = "SELECT * FROM `tutenti` WHERE username = '$username' AND PASSWORD = '$password'";
-        $rec = mysqli_query($conn, $sql);
+        $sql = "SELECT id, username FROM tutenti WHERE username = '$username' AND password = '$password'";
+        $rec = mysqli_query($con, $sql);
         if(mysqli_num_rows($rec) == 1){
             session_start();
 
-            $array = mysqli_fetch_array($rec);
+            $row = mysqli_fetch_assoc($rec);
 
-            $_SESSION['username'] = $username;
-            $_SESSION['connessione'] = $con;
+            $_SESSION['username'] = $row['username'];
 
-            $_SESSION['idUtente'] = $rec['id'];
+            $_SESSION['idUtente'] = $row['id'];
 
             $redirectURL = "menu_settimana.php";
             $delay = 1;     //delay di 1 secondo
