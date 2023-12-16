@@ -37,13 +37,20 @@
         VALUES ('$username', '$password','$telefono', '$email', '$indirizzo','$notifica', '$cognome', '$nome');";
         mysqli_query($con, $sql);
 
-        $sql = "SELECT id FROM tutenti WHERE username = '$username' AND password = '$password'";
+        $sql = "SELECT id, username FROM tutenti WHERE username = '$username' AND password = '$password'";
         $rec = mysqli_query($con, $sql);
 
         if(mysqli_num_rows($rec) == 1)
         {
             $row = mysqli_fetch_assoc($rec);
             $_SESSION['idUtente'] = $row['id'];
+            $_SESSION['username'] = $row['username'];
+            $dataOraAttuale    = new DateTime();
+            $dataOraUnGiornoFa = clone $dataOraAttuale;
+            $dataOraUnGiornoFa->modify("-1 day");
+            $dataOraUnGiornoFaSQL = $dataOraUnGiornoFa->format('Y-m-d H:i:s');
+            $sql = "UPDATE tcarrello SET idutente = ".$_SESSION['idUtente']." WHERE sessione = '".session_id()."' AND evaso != 's' AND datains > '$dataOraUnGiornoFaSQL'";
+            mysqli_query($con, $sql);
             header('location:index.php');
         }
     ?>
