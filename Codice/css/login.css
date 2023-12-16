@@ -43,6 +43,7 @@ body{
 
 }
 
+
 .loginForm{
 
     display: flex;
@@ -69,4 +70,15 @@ body{
 {
     font-size: 60%;
     color: #ff000082;
+}
+
+.newsletterCheckbox{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-transform: capitalize;
+
 }

@@ -103,3 +103,104 @@ header
 {
     font-size: 120%;
 }
+
+.foto_prodotto{
+
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+    background-color: black;
+    min-width: 30%;
+    min-height: 30%;
+
+}
+
+#prodotti{
+
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: 3vh 1vw;
+    
+
+}
+
+.nome_prodotto{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.prodotto{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+ 
+    width: 80%;
+    height: fit-content;
+    padding: 5px;
+    box-shadow: 0 0 10px 1px fuchsia; 
+    border-radius: 5px; 
+
+}
+
+.caratteristiche{
+
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    width: 30%;
+
+}
+
+.caratteristiche *{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+.caratteristiche2{
+
+    width: 10% !important;
+    gap: 1vh 0vw  !important;
+
+}
+
+.aggiungi_carrello_container{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 4;
+
+}
+
+.bottone{
+
+    padding: 1vh 0.25vw;
+    background-color: transparent;
+    border-radius: 30px;
+    
+    border-color: fuchsia;
+
+
+}
+
+.bottone:hover{
+    box-shadow: 0 0 10px 1px fuchsia;
+}
+
+.bottone_aggiungi_carrello{
+
+    padding: 1vh 2vw !important;
+
+
+}
+

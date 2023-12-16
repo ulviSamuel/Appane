@@ -21,13 +21,7 @@
         $indirizzo = $_POST['indirizzo'];
         $telefono  = $_POST['telefono'];
         $email     = $_POST['email'];
-
-        if(isset($_POST['notifica'])){
-            $notifica = $_POST['notifica'];
-        }else{
-            $notifica = "s";
-        }
-
+        $notifica  = $_POST['checkbox'] ? "s" : "n";
         $username  = $_POST['username'];
         $password  = $_POST['password'];
         
