@@ -104,7 +104,7 @@
                             var prezzoTotale              = prezzoTotaleElement.innerText.replace(/[^0-9.]/g, '');
                             var prezzoAggiornato          = prezzoTotale - prezzoProdotto;
                             prezzoAggiornato              = prezzoAggiornato.toFixed(2);
-                            prezzoTotaleElement.innerText = "Nuovo totale: " + prezzoAggiornato + "€";
+                            prezzoTotaleElement.innerText = "Totale: " + prezzoAggiornato + "€";
                         }
                     }
                 }
