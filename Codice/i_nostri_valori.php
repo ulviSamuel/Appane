@@ -33,24 +33,27 @@
         </header>
 
         <div id="corpo">
+            
+            <h1 id="titolo">I Nostri Valori</h1>
+
             <div class="valore_sx">
                 <h2 class="titolo_valore_sx">Qualità</h2>
                 <p id="paragrafo_valore_sx">
-                    Il nostro obbiettivo è creare del pane di qualità di nicchia, non abbiamo intenzione di fare concorrenza ai supermercati.
+                    Il nostro obbiettivo è creare del pane di qualità e di nicchia, la nostra intenzione non è fare concorrenza ai supermercati.
                 </p>
             </div>
 
             <div class="valore_dx">
                 <h2 class="titolo_valore_dx">Selezione degli ingredienti</h2>
                 <p id="paragrafo_valore_dx">
-                    Che si tratti di olio, farine o acqua noi applichiamo una severa selezione di scelta sugli ingredienti.
+                    Che si tratti di olio, farine o acqua noi applichiamo una severa selezione sugli ingredienti.
                 </p>
             </div>
 
             <div class="valore_sx">
                 <h2 class="titolo_valore_sx">Solo ingredienti km0</h2>
                 <p id="paragrafo_valore_sx">
-                    Tutti gli ingredienti da noi selezionati per la creazione dei nostri prodotti vengono acquistati in territorio triestino e dintorni.
+                    Tutti gli ingredienti da noi selezionati per la creazione dei nostri prodotti vengono acquistati in territorio triestino e nei dintorni.
                 </p>
             </div>
 
@@ -64,14 +67,14 @@
             <div class="valore_sx">
                 <h2 class="titolo_valore_sx">No conservanti e o additivi</h2>
                 <p id="paragrafo_valore_sx">
-                    Nella selezione degli ingredienti e nella produzione del prodotto, ci impegnamo a selezionare e a non aggiungere conservanti o additivi.<br>Noi crediamo nel pane di antica tradizione, fresco e da consumare in giornata.
+                    Nella selezione degli ingredienti e nella produzione del prodotto, ci impegnamo a selezionare e a non aggiungere conservanti o additivi.<br>Noi crediamo nel pane di antica tradizione, fresco, naturale e da consumare in giornata.
                 </p>
             </div>
 
             <div class="valore_dx">
                 <h2 class="titolo_valore_dx">Tradizione</h2>
                 <p id="paragrafo_valore_dx">
-                    Ci impegnamo nel continuare a produrre i nostri prodotti tramite le tecniche di produzione pre-industriali.
+                    Ci impegniamo a preservare la produzione dei nostri prodotti seguendo l'antica tradizione, con un approccio artigianale.
                 </p>
             </div>
         </div>
