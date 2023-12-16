@@ -2,6 +2,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/prodotto_dettaglio_style.css">
+        <title>Prodotto in Dettaglio</title>
     </head>
 
     <body>

@@ -24,6 +24,9 @@
 
             $_SESSION['idUtente'] = $row['id'];
 
+            $sql = "UPDATE tcarrello SET idutente = ".$row['id']." WHERE sessione = '".session_id()."' AND idutente = 0";
+            mysqli_query($con, $sql);
+
             $redirectURL = "menu_settimana.php";
 
             header("Location: $redirectURL");

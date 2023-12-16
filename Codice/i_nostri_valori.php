@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/nostri_valori_style.css">
+        <title>I Nostri Valori</title>
     </head>
 
     <body>
