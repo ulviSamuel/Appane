@@ -32,19 +32,26 @@
             </div>
         </header>
     
-    <div id="contenuto">
+    
+    <div class="contenuto">
+
+        <div id="contenuto_testo">
 
         <h1 id="title">
             APPANE
         </h1>
-        
+
         <p id="text">
             <b>
                 Il nostro pane non ha sfidanti, offre prodotti di una tale qualità unica nel mercato.
             </b>
         </p>
-        
+
+        </div>
+
     </div>
+
+    
 
 
 </body>

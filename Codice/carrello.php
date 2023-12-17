@@ -60,18 +60,18 @@
                         $prezzoTotale   = number_format($prezzoTotale, 2, '.', '');
                         echo "<div id='prodotto_".$row['idProdCarrello']."' class='prodotto'>";
                         echo "<img class='foto_prodotto' src='".$row['foto']."' alt='".$row['nome']."'>";
-                        echo "<h3 class='nome_prodotto'>".$row['nome']."</h3>";
-                        echo "<span class='testo_quantità'>Quantità:".$row['quantita']."</span>";
-                        echo "<span id='prezzo_totale_prodotto_".$row['idProdCarrello']."' class='prezzo_totale_prodotto'>Prezzo totale: ".$prezzoProdotto."€</span>";
-                        echo "<button class='btn_dettagli_prodotto' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['idProdotto']."'\">Prodotto in dettaglio</button>";
-                        echo "<button class='btn_rimuovi_carrello' onclick='rimuoviDalCarrello(".$row['idProdCarrello'].")'>Rimuovi dal carrello</button>";
+                        echo "<div class='caratteristiche'><h3 class='nome_prodotto'>".$row['nome']."</h3>";
+                        echo "<span class='testo_quantità'>Quantità:".$row['quantita']."</span> ";
+                        echo "<span id='prezzo_totale_prodotto_".$row['idProdCarrello']."' class='prezzo_totale_prodotto'>Prezzo totale: ".$prezzoProdotto."€</span> </div>";
+                        echo "<div class='caratteristiche caratteristiche2'> <button class='bottone' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['idProdotto']."'\">Prodotto in dettaglio</button> </div>";
+                        echo "<button class='bottone' onclick='rimuoviDalCarrello(".$row['idProdCarrello'].")'>Rimuovi dal carrello</button>";
                         echo "</div>";
                     }
                     echo "</div>";
-                    echo "<h2 id='prezzo_totale'>Totale: ".$prezzoTotale."€</h2>";
+                    echo "<div class='riepilogo_finale'><h2 id='prezzo_totale'>Totale: ".$prezzoTotale."€</h2>";
                     echo "<a id='link_conferma_ordine' href='conferma_ordine.php'>";
-                    echo "<button id='btn_conferma_ordine'>Conferma Ordine</button>";
-                    echo "</a>";
+                    echo "<button class = 'bottone' id='btn_conferma_ordine'>Conferma Ordine</button>";
+                    echo "</a> </div>";
                 }
                 else
                     echo "<h2 id='carrello_vuoto'>Non ci sono prodotti nel carrello</h2>";

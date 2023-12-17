@@ -90,3 +90,146 @@ header
 {
     font-size: 120%;
 }
+
+#corpo{
+
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#grandezza_corpo{
+
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.valore{
+
+    
+    width: 100%;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2vh 1vw;
+    gap: 0 1vw;
+
+}
+
+.valore *{
+
+    box-sizing: border-box;
+
+}
+
+.valore_sx{
+
+    width: 50%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    text-align: end;
+    padding: 2vh 1vw;
+
+    background-color: darkgrey;
+    border-radius: 8px;
+   
+
+}
+
+.valore_dx{
+
+    width: 50%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    text-align: start;
+    padding: 2vh 1vw;
+
+    background-color: darkgrey;
+    border-radius: 8px;
+
+    
+
+}
+
+.foto_container_sx{
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 50%;
+    height: fit-content;
+    
+
+}
+
+.foto_container_dx{
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 50%;
+    height: fit-content;
+    
+
+}
+
+
+.foto{
+
+    width: 30vh;
+    height: 25vh;
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+
+}
+
+.qualita{
+
+    background-image: url("../img/nostri_valori/qualita.jpeg");
+
+}
+
+.selezione{
+
+    background-image: url("../img/nostri_valori/selezione.jpg");
+
+}
+
+.chilometro_zero{
+
+    background-image: url("../img/nostri_valori/chilometro_zero.jpg");
+
+}
+.biologico{
+
+    background-image: url("../img/nostri_valori/biologici.jpg");
+
+}
+.conservanti_additivi{
+
+    background-image: url("../img/nostri_valori/no_additivi_conservanti.jpg");
+
+}
+.tradizione{
+
+    background-image: url("../img/nostri_valori/tradizioni.jpg");
+
+}

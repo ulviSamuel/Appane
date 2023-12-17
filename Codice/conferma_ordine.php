@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/conferma_ordine.css">
         <meta charset="utf-8">
         <?php
             session_start();
@@ -20,11 +21,18 @@
     </head>
 
     <body>
+        
+        <div class="elementi">
+            <div class="box_elementi">
+                <img id="check_icon" src="img/check_icon.png" alt="Check Icon">
+                <h1 id="titolo_conferma_ordine">Ordine avvenuto con successo</h1>
+                <a id="link_home" href="index.php">
+                    <button class="bottone">Torna alla schermata home</button>
+                </a>
+            </div>
+            
 
-        <img id="check_icon" src="img/check_icon.png" alt="Check Icon">
-        <h1 id="titolo_conferma_ordine">Ordine avvenuto con successo</h1>
-        <a id="link_home" href="index.php">
-            <button id='btn_home'>Torna alla schermata home</button>
-        </a>
+        </div>
+        
     </body>
 </html>
