@@ -95,7 +95,7 @@
                     <div class="valore_sx">
                         <h2 class="titolo_valore_sx">No conservanti e o additivi</h2>
                         <p id="paragrafo_valore_sx">
-                            Nella selezione degli ingredienti e nella produzione del prodotto, ci impegnamo a selezionare e a non aggiungere conservanti o additivi.<br>Noi crediamo nel pane di antica tradizione, fresco e da consumare in giornata.
+                            Nella selezione degli ingredienti e nella produzione del prodotto, ci impegniamo a selezionare e a non aggiungere conservanti o additivi.<br>Noi crediamo nel pane di antica tradizione, fresco e da consumare in giornata.
                         </p>
                     </div>
 
@@ -112,7 +112,7 @@
                     <div class="valore_dx">
                         <h2 class="titolo_valore_dx">Tradizione</h2>
                         <p id="paragrafo_valore_dx">
-                            Ci impegnamo nel continuare a produrre i nostri prodotti tramite le tecniche di produzione pre-industriali.
+                            Ci impegniamo nel continuare a produrre i nostri prodotti tramite le tecniche di produzione pre-industriali.
                         </p>
                     </div>
                     
