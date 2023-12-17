@@ -51,7 +51,7 @@
                         echo "<span class='categoria_prodotto'>Categoria: ".$row['categoria']."</span> </div>";
                         $prezzoProdotto = number_format($row['prezzo'], 2, '.', '');
                         echo "<div class = 'caratteristiche caratteristiche2'> <span class='prezzo_prodotto'>Prezzo: ".$prezzoProdotto."€</span>";
-                        echo "<button class='bottone' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['id']."'\">Prodotto in dettaglio</button>";
+                        //echo "<button class='bottone' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['id']."'\">Prodotto in dettaglio</button>";
                         echo "<span class='testo_quantità'>Quantità:</span>";
                         echo "<input id='selettore_quantità_".$row['id']."' class='selettore_quantità bottone' type='number' value='1' min='1' max='99' step='1'/> </div>";
                         echo "<div class='aggiungi_carrello_container'> <button class='bottone bottone_aggiungi_carrello' onclick='aggiungiAlCarrello(".$row['id'].")'>Aggiungi al carrello</button> </div>";
