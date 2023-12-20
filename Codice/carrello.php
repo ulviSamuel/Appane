@@ -63,7 +63,7 @@
                         echo "<div class='caratteristiche'><h3 class='nome_prodotto'>".$row['nome']."</h3>";
                         echo "<span class='testo_quantità'>Quantità:".$row['quantita']."</span> ";
                         echo "<span id='prezzo_totale_prodotto_".$row['idProdCarrello']."' class='prezzo_totale_prodotto'>Prezzo totale: ".$prezzoProdotto."€</span> </div>";
-                        echo "<div class='caratteristiche caratteristiche2'> <button class='bottone' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['idProdotto']."'\">Prodotto in dettaglio</button> </div>";
+                        //echo "<div class='caratteristiche caratteristiche2'> <button class='bottone' onclick=\"window.location.href='dettagli_prodotto.php?idProdotto=".$row['idProdotto']."'\">Prodotto in dettaglio</button> </div>";
                         echo "<button class='bottone' onclick='rimuoviDalCarrello(".$row['idProdCarrello'].")'>Rimuovi dal carrello</button>";
                         echo "</div>";
                     }
