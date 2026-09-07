@@ -1,229 +1,105 @@
 # Appane
 
-![PHP](https://img.shields.io/badge/PHP-Web%20Application-777BB4?logo=php&logoColor=white)
-![Stato](https://img.shields.io/badge/Stato-Progetto%20scolastico-orange)
-![Anno](https://img.shields.io/badge/Anno-2023-lightgrey)
-![Frontend](https://img.shields.io/badge/Frontend-HTML%20%2B%20CSS-blue)
+Appane is a server-rendered PHP web application for browsing a bakery product menu, managing a shopping cart, and confirming orders.
 
-**Appane** è un progetto scolastico realizzato nel **2023**: una web application in **PHP** per la consultazione di un menù, visualizzazione prodotti, autenticazione utenti e gestione di un **carrello** con conferma ordine.
+![PHP](https://img.shields.io/badge/PHP-server--rendered-777BB4?logo=php&logoColor=white)
+![Database](https://img.shields.io/badge/Database-MySQL%2FMySQLi-4479A1?logo=mysql&logoColor=white)
+![Year](https://img.shields.io/badge/Year-2023-lightgrey)
 
-Il progetto integra pagine informative, area autenticazione (login/registrazione), dettaglio prodotto, aggiunta/rimozione dal carrello e flusso di conferma ordine.
+## Overview
 
----
+The application provides a small bakery ordering flow:
 
-## Indice
+- browse products grouped by category;
+- view product details;
+- register an account and sign in;
+- add products and quantities to a session- or user-associated cart;
+- remove products from the cart;
+- confirm an order for a signed-in user;
+- read the site's product and sourcing values.
 
-- [Descrizione](#descrizione)
-- [Funzionalità](#funzionalità)
-- [Struttura del progetto](#struttura-del-progetto)
-- [Architettura](#architettura)
-- [Tecnologie utilizzate](#tecnologie-utilizzate)
-- [Flusso utente](#flusso-utente)
-- [Configurazione](#configurazione)
-- [Esecuzione del progetto](#esecuzione-del-progetto)
-- [Note sul progetto](#note-sul-progetto)
-- [Possibili miglioramenti futuri](#possibili-miglioramenti-futuri)
-- [Autore](#autore)
-- [Licenza](#licenza)
+The repository is a historical PHP application rather than a production-ready service. Its user-facing pages and database operations are implemented directly in the `Codice/` directory.
 
----
+## Technology stack
 
-## Descrizione
+- **PHP** for server-side page rendering, authentication, cart operations, and order confirmation.
+- **HTML and CSS** for the page structure and presentation.
+- **JavaScript** with `XMLHttpRequest` for adding and removing cart items without a full page reload.
+- **MySQL accessed through PHP MySQLi** for users, products, categories, and cart records.
+- **Draw.io** for the storyboard stored in `Storyboard/`.
 
-L’obiettivo del progetto è simulare un sito/applicazione web orientata alla ristorazione, dove l’utente può:
+## Application flow
 
-- visualizzare il menù settimanale;
-- consultare dettagli dei prodotti;
-- registrarsi ed effettuare login;
-- aggiungere prodotti al carrello;
-- rimuovere prodotti dal carrello;
-- confermare un ordine.
+The main entry point is `Codice/index.php`. From there, users can navigate to the weekly menu, values page, cart, or login flow.
 
-Sono presenti anche sezioni informative come homepage e pagina dedicata ai valori del progetto.
+1. `menu_settimana.php` reads products and categories from the database and accepts a quantity for each product.
+2. `aggiungi_al_carrello.php` associates the selected product with the current authenticated user or PHP session.
+3. `carrello.php` displays active cart items from the previous day and calculates the total.
+4. `conferma_ordine.php` requires an authenticated user and marks the user's active cart records as fulfilled.
 
----
-
-## Funzionalità
-
-Il gestionale web permette di svolgere le principali operazioni lato utente:
-
-- navigazione homepage;
-- visualizzazione menù settimanale;
-- visualizzazione dettaglio prodotto;
-- autenticazione utente;
-- registrazione nuovo utente;
-- inserimento dati (pagina dedicata);
-- aggiunta prodotto al carrello;
-- visualizzazione carrello;
-- rimozione prodotto dal carrello;
-- conferma ordine;
-- pagina informativa “I nostri valori”.
-
----
-
-## Struttura del progetto
+## Project structure
 
 ```text
-Appane/
-│
+.
 ├── Codice/
 │   ├── index.php
-│   ├── index.html
 │   ├── menu_settimana.php
 │   ├── dettagli_prodotto.php
 │   ├── carrello.php
 │   ├── aggiungi_al_carrello.php
 │   ├── rimuovi_prodotto_carrello.php
 │   ├── conferma_ordine.php
-│   ├── auth.php
 │   ├── login.php
 │   ├── registrati.php
+│   ├── auth.php
 │   ├── InserimentoDati.php
 │   ├── i_nostri_valori.php
 │   ├── variabili_connessione.php
 │   ├── css/
 │   └── img/
-│
-├── Storyboard/
-│   └── storyboard appane.drawio
-│
-└── .gitattributes
+└── Storyboard/
+    └── storyboard appane.drawio
 ```
 
----
+## Getting started
 
-## Architettura
+### Prerequisites
 
-Il progetto è organizzato con una separazione pratica tra pagine, logica operativa e risorse statiche.
+- PHP with the MySQLi extension enabled.
+- A reachable MySQL-compatible database containing the tables referenced by the application: `tutenti`, `tprodotti`, `tcategorie`, and `tcarrello`.
 
-### Pagine principali
+No dependency manifest, database schema dump, automated build configuration, or test suite is included in this repository.
 
-- `index.php` / `index.html`: ingresso applicazione;
-- `menu_settimana.php`: visualizzazione menù;
-- `dettagli_prodotto.php`: dettaglio singolo prodotto;
-- `i_nostri_valori.php`: contenuto informativo.
+### Configuration
 
-### Autenticazione
+Review [`Codice/variabili_connessione.php`](Codice/variabili_connessione.php) and configure its database connection for the local environment. The repository does not include a schema or migration script, so the required database structure must be supplied separately.
 
-- `auth.php`: logica di autenticazione;
-- `login.php`: interfaccia/accesso utente;
-- `registrati.php`: registrazione nuovi utenti.
+### Run locally
 
-### Carrello e ordini
-
-- `aggiungi_al_carrello.php`: aggiunta elementi;
-- `carrello.php`: visualizzazione contenuto carrello;
-- `rimuovi_prodotto_carrello.php`: rimozione elemento;
-- `conferma_ordine.php`: conferma finale ordine.
-
-### Supporto e configurazione
-
-- `InserimentoDati.php`: gestione/inserimento dati;
-- `variabili_connessione.php`: variabili di connessione;
-- `css/`: fogli di stile;
-- `img/`: immagini del progetto.
-
----
-
-## Tecnologie utilizzate
-
-- **PHP** (logica lato server)
-- **HTML** (struttura delle pagine)
-- **CSS** (stile e layout)
-- **Hack** (presenza marginale nel repository)
-- **Storyboard Draw.io** per progettazione flusso
-
-Composizione linguaggi repository:
-
-- PHP: **63.2%**
-- CSS: **31.8%**
-- Hack: **2.8%**
-- HTML: **2.2%**
-
----
-
-## Flusso utente
-
-Un flusso tipico dell’applicazione è il seguente:
-
-1. accesso alla homepage;
-2. consultazione menù settimanale;
-3. apertura dettagli prodotto;
-4. login/registrazione (se necessario);
-5. aggiunta prodotti al carrello;
-6. revisione/rimozione prodotti dal carrello;
-7. conferma ordine.
-
----
-
-## Configurazione
-
-Il file `variabili_connessione.php` contiene i parametri di connessione utilizzati dal progetto.
-
-> Prima di eseguire l’applicazione in locale, verificare e aggiornare i parametri in base al proprio ambiente (host, username, password, database).
-
----
-
-## Esecuzione del progetto
-
-Il progetto può essere eseguito con uno stack PHP locale, ad esempio:
-
-- XAMPP
-- WAMP
-- MAMP
-- server PHP integrato
-
-### Avvio rapido (server PHP integrato)
-
-Dalla cartella del progetto:
+From the repository root, start PHP's built-in development server with the application directory as its document root:
 
 ```bash
-cd Codice
-php -S localhost:8000
+php -S localhost:8000 -t Codice
 ```
 
-Aprire poi nel browser:
+Open <http://localhost:8000/index.php> in a browser.
 
-```text
-http://localhost:8000/index.php
+The pages that use product, user, or cart data require a working database connection. The login and registration forms post to `auth.php` and `InserimentoDati.php`, respectively.
+
+## Testing and build status
+
+The repository contains no declared test or build commands. PHP syntax checks can be run against the application files when PHP is installed:
+
+```bash
+for file in Codice/*.php; do php -l "$file" || exit 1; done
 ```
 
----
+This is a manual syntax check, not an included automated test suite.
 
-## Note sul progetto
+## Historical context
 
-Questo repository contiene un **progetto scolastico del 2023**, realizzato con finalità didattiche per esercitarsi su:
+The non-README Git history records the initial repository and storyboard commits on 2023-12-06, followed by feature and correction commits through 2023-12-20. The original development year is therefore documented as **2023** based on the coherent implementation history, not the later README-generation commit.
 
-- sviluppo web lato server con PHP;
-- gestione pagine dinamiche;
-- flussi di autenticazione;
-- gestione carrello/ordine;
-- organizzazione risorse frontend (HTML/CSS);
-- progettazione preliminare tramite storyboard.
+## License
 
----
-
-## Possibili miglioramenti futuri
-
-Alcune possibili evoluzioni del progetto:
-
-- introduzione architettura MVC completa;
-- validazioni server-side più robuste;
-- gestione sessioni e sicurezza avanzata;
-- separazione più netta tra logica e presentazione;
-- test automatici;
-- pannello amministratore per gestione prodotti/menù;
-- storico ordini utente;
-- miglioramento responsive design e accessibilità.
-
----
-
-## Autore
-
-Progetto realizzato da **Samuel Ulivi**.
-
----
-
-## Licenza
-
-Questo progetto è stato sviluppato per scopi scolastici e didattici.
+No license file or explicit license declaration is included in the repository. Licensing status requires human review.
