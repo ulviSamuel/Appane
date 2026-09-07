@@ -102,4 +102,4 @@ The non-README Git history records the initial repository and storyboard commits
 
 ## License
 
-No license file or explicit license declaration is included in the repository. Licensing status requires human review.
+This project is shared for educational and portfolio purposes. All rights reserved unless otherwise stated.
